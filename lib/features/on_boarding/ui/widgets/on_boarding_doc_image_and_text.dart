@@ -9,36 +9,36 @@ class OnBoardingDocImageAndText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 491.h,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          Positioned(
-            top: 0,
-            child: SvgPicture.asset(Assets.svgsLogoWithOpacity),
-          ),
-          Container(
-            foregroundDecoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Colors.white,
-                  Colors.white.withOpacity(0.0),
-                ],
-                begin: Alignment.bottomCenter,
-                end: Alignment.topCenter,
-                stops: const [0.14, 0.4],
-              ),
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Positioned(
+          top: -0.h,
+          child: SvgPicture.asset(Assets.svgsLogoWithOpacity),
+        ),
+        Container(
+          foregroundDecoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.white,
+                Colors.white.withOpacity(0.0),
+              ],
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              stops: const [0.14, 0.4],
             ),
-            child: Image.asset(Assets.imagesOnBoardingDoctor),
           ),
-          Text(
+          child: Image.asset(Assets.imagesOnBoardingDoctor),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
+          child: Text(
             "Best Doctor Appointment App",
             style: AppTextStyles.boldPrimary32,
             textAlign: TextAlign.center,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
