@@ -21,9 +21,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            SliverFillRemaining(
+        child: SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
                 child: Column(
@@ -140,8 +138,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
             ),
-          ],
-        ),
+          
       ),
     );
   }
