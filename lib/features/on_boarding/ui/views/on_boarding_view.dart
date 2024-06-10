@@ -1,9 +1,8 @@
-import 'package:doc_app/core/helpers/extensions.dart';
-import 'package:doc_app/core/routing/app_routes.dart';
-import 'package:doc_app/core/theming/app_text_styles.dart';
-import 'package:doc_app/core/widgets/custom_button.dart';
+import '../../../../core/helpers/extensions.dart';
+import '../../../../core/routing/app_routes.dart';
+import '../../../../core/theming/app_text_styles.dart';
+import '../../../../core/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/on_boarding_doc_image_and_text.dart';

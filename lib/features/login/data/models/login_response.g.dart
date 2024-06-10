@@ -14,13 +14,6 @@ LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) =>
       code: (json['code'] as num).toInt(),
     );
 
-Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'data': instance.data,
-      'status': instance.status,
-      'code': instance.code,
-    };
 
 LoginResponseData _$LoginResponseDataFromJson(Map<String, dynamic> json) =>
     LoginResponseData(
@@ -28,8 +21,3 @@ LoginResponseData _$LoginResponseDataFromJson(Map<String, dynamic> json) =>
       username: json['username'] as String?,
     );
 
-Map<String, dynamic> _$LoginResponseDataToJson(LoginResponseData instance) =>
-    <String, dynamic>{
-      'token': instance.token,
-      'username': instance.username,
-    };
