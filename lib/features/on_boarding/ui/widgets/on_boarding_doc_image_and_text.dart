@@ -1,5 +1,5 @@
-import 'package:doc_app/core/helpers/app_images.dart';
-import 'package:doc_app/core/theming/app_text_styles.dart';
+import '../../../../core/helpers/app_images.dart';
+import '../../../../core/theming/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';

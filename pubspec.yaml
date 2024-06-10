@@ -47,6 +47,7 @@ dependencies:
   retrofit_generator: ^8.1.0
 
 dev_dependencies:
+  build_runner: ^2.4.11
   flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
@@ -87,10 +88,9 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
 flutter_assets:
   assets_path: assets/
   output_path: lib/core/helpers/
   filename: app_images.dart
-  field_prefix:
+  field_prefix: null
   class_name: AppImages

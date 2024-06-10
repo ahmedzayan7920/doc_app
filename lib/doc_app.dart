@@ -1,7 +1,6 @@
-import 'dart:io';
 
-import 'package:doc_app/core/routing/app_router.dart';
-import 'package:doc_app/core/theming/app_colors.dart';
+import 'core/routing/app_router.dart';
+import 'core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
