@@ -1,3 +1,4 @@
+import 'package:doc_app/features/sign_up/ui/widgets/sign_up_gender_section.dart';
 import 'package:doc_app/features/sign_up/ui/widgets/sign_up_name_field.dart';
 import 'package:doc_app/features/sign_up/ui/widgets/sign_up_password_confirmation_field.dart';
 import 'package:doc_app/features/sign_up/ui/widgets/sign_up_phone_field.dart';
@@ -39,9 +40,7 @@ class _SignUpFormState extends State<SignUpForm> {
         children: [
           const SignUpNameField(),
           const VerticalSpace(16),
-          const SignUpPhoneField(
-            
-          ),
+          const SignUpPhoneField(),
           const VerticalSpace(16),
           const SignUpEmailField(),
           const VerticalSpace(16),
@@ -49,13 +48,13 @@ class _SignUpFormState extends State<SignUpForm> {
             isPasswordValidNotifier: isPasswordValidNotifier,
           ),
           const VerticalSpace(16),
-          const SignUpPasswordConfirmationField(
-          ),
+          const SignUpPasswordConfirmationField(),
           const VerticalSpace(16),
           PasswordValidator(
             passwordController: context.read<SignUpCubit>().passwordController,
             isPasswordValidNotifier: isPasswordValidNotifier,
           ),
+          const SignUpGenderSection(),
           TextButton(
             onPressed: () {},
             child: const Text("Forgot Password?"),

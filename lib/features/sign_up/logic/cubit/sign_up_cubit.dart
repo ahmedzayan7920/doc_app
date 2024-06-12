@@ -18,7 +18,7 @@ class SignUpCubit extends Cubit<SignUpState> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordConfirmationController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-  bool isPasswordValidate = false;
+  int gender = 0;
 
   signUp() async {
     emit(const SignUpState.loading());
@@ -29,7 +29,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         phone: phoneController.text,
         password: passwordController.text,
         passwordConfirmation: passwordConfirmationController.text,
-        gender: 0,
+        gender: gender,
       ),
     );
     response.when(
