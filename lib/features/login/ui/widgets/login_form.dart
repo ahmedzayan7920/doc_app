@@ -1,5 +1,5 @@
+import '../../../../core/widgets/password_validator.dart';
 import '../../logic/cubit/login_cubit.dart';
-import 'password_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,6 +17,14 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
+  final isPasswordValidNotifier = ValueNotifier<bool>(false);
+
+  @override
+  void dispose() {
+    isPasswordValidNotifier.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -27,9 +35,14 @@ class _LoginFormState extends State<LoginForm> {
         children: [
           const LoginEmailField(),
           const VerticalSpace(16),
-          const LoginPasswordField(),
+          LoginPasswordField(
+            isPasswordValidNotifier: isPasswordValidNotifier,
+          ),
           const VerticalSpace(16),
-          const PasswordValidator(),
+          PasswordValidator(
+            passwordController: context.read<LoginCubit>().passwordController,
+            isPasswordValidNotifier: isPasswordValidNotifier,
+          ),
           TextButton(
             onPressed: () {},
             child: const Text("Forgot Password?"),

@@ -14,6 +14,7 @@ class LoginEmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomFormField(
       hint: "Email",
+      keyboardType: TextInputType.emailAddress,
       controller: context.read<LoginCubit>().emailController,
       validator: (value) {
         if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {

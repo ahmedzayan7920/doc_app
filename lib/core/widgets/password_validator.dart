@@ -1,17 +1,20 @@
-import '../../../../core/helpers/app_regex.dart';
-import '../../../../core/theming/app_colors.dart';
+import '../helpers/app_regex.dart';
+import '../theming/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/helpers/spaces.dart';
-import '../../../../core/theming/app_text_styles.dart';
-import '../../logic/cubit/login_cubit.dart';
+import '../helpers/spaces.dart';
+import '../theming/app_text_styles.dart';
 
 class PasswordValidator extends StatefulWidget {
+  final TextEditingController passwordController;
+  final ValueNotifier<bool> isPasswordValidNotifier;
   const PasswordValidator({
     super.key,
+    required this.passwordController, required this.isPasswordValidNotifier,
   });
+
+   TextEditingController get controller => passwordController;
 
   @override
   State<PasswordValidator> createState() => _PasswordValidatorState();
@@ -25,18 +28,18 @@ class _PasswordValidatorState extends State<PasswordValidator> {
   bool hasMinLength = false;
   @override
   void initState() {
-    context.read<LoginCubit>().passwordController.addListener(() {
-      final password = context.read<LoginCubit>().passwordController.text;
+    widget.passwordController.addListener(() {
+      final password = widget.passwordController.text;
       hasLowerCase = AppRegex.hasLowerCase(password);
       hasUpperCase = AppRegex.hasUpperCase(password);
       hasNumber = AppRegex.hasNumber(password);
       hasSpecialCharacter = AppRegex.hasSpecialCharacter(password);
       hasMinLength = AppRegex.hasMinLength(password);
-      context.read<LoginCubit>().isPasswordValidate = hasLowerCase &&
-          hasUpperCase &&
-          hasNumber &&
-          hasSpecialCharacter &&
-          hasMinLength;
+      widget.isPasswordValidNotifier.value = hasLowerCase &&
+        hasUpperCase &&
+        hasNumber &&
+        hasSpecialCharacter &&
+        hasMinLength;
       setState(() {});
     });
     super.initState();
