@@ -2,7 +2,7 @@ import 'package:doc_app/core/helpers/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/login_already_have_account.dart';
+import '../widgets/do_not_have_account.dart';
 import '../widgets/login_bloc_listener.dart';
 import '../widgets/login_form.dart';
 import '../widgets/login_header.dart';
@@ -26,7 +26,7 @@ class LoginView extends StatelessWidget {
                 VerticalSpace(16),
                 LoginTermsAndConditions(),
                 VerticalSpace(40),
-                LoginAlreadyHaveAccount(),
+                DoNotHaveAccount(),
                 LoginBlocListener(),
               ],
             ),

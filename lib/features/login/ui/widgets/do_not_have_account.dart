@@ -1,10 +1,12 @@
 
+import 'package:doc_app/core/helpers/extensions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/routing/app_routes.dart';
 import '../../../../core/theming/app_text_styles.dart';
 
-class LoginAlreadyHaveAccount extends StatelessWidget {
-  const LoginAlreadyHaveAccount({
+class DoNotHaveAccount extends StatelessWidget {
+  const DoNotHaveAccount({
     super.key,
   });
 
@@ -15,11 +17,13 @@ class LoginAlreadyHaveAccount extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "Already have an account?",
+          "Don't have an account?",
           style: AppTextStyles.regularGrey14,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            context.pushReplacementNamed(AppRoutes.signUp);
+          },
           child: const Text("Sign Up"),
         ),
       ],
