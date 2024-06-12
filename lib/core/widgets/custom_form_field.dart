@@ -12,6 +12,7 @@ class CustomFormField extends StatelessWidget {
     this.controller,
     this.validator,
     this.autovalidateMode,
+    this.keyboardType,
   });
   final String hint;
   final bool obscureText;
@@ -19,10 +20,12 @@ class CustomFormField extends StatelessWidget {
   final TextEditingController? controller;
   final String? Function(String?)? validator;
   final AutovalidateMode? autovalidateMode;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
       autovalidateMode: autovalidateMode,
       controller: controller,
       validator: validator,
