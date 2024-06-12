@@ -15,14 +15,6 @@ SignUpResponseModel _$SignUpResponseModelFromJson(Map<String, dynamic> json) =>
       code: (json['code'] as num).toInt(),
     );
 
-Map<String, dynamic> _$SignUpResponseModelToJson(
-        SignUpResponseModel instance) =>
-    <String, dynamic>{
-      'message': instance.message,
-      'data': instance.data,
-      'status': instance.status,
-      'code': instance.code,
-    };
 
 SignUpResponseModelData _$SignUpResponseModelDataFromJson(
         Map<String, dynamic> json) =>
@@ -31,9 +23,3 @@ SignUpResponseModelData _$SignUpResponseModelDataFromJson(
       username: json['username'] as String?,
     );
 
-Map<String, dynamic> _$SignUpResponseModelDataToJson(
-        SignUpResponseModelData instance) =>
-    <String, dynamic>{
-      'token': instance.token,
-      'username': instance.username,
-    };

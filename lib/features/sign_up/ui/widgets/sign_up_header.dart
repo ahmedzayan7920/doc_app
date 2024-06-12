@@ -23,7 +23,7 @@ class SignUpHeader extends StatelessWidget {
         ),
         const VerticalSpace(8),
         Text(
-          "Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!",
+          "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
           style: AppTextStyles.regularGrey14,
         ),
       ],
