@@ -4,31 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/widgets/custom_form_field.dart';
-import '../../logic/cubit/login_cubit.dart';
+import '../../logic/cubit/sign_up_cubit.dart';
 
-class LoginPasswordField extends StatefulWidget {
-  
-  final ValueNotifier<bool> isPasswordValidNotifier;
-  const LoginPasswordField({
-    super.key, required this.isPasswordValidNotifier,
-  });
+class SignUpPasswordConfirmationField extends StatefulWidget {
+  const SignUpPasswordConfirmationField({
+    super.key,});
 
   @override
-  State<LoginPasswordField> createState() => _LoginPasswordFieldState();
+  State<SignUpPasswordConfirmationField> createState() => _SignUpPasswordConfirmationFieldState();
 }
 
-class _LoginPasswordFieldState extends State<LoginPasswordField> {
+class _SignUpPasswordConfirmationFieldState extends State<SignUpPasswordConfirmationField> {
   bool obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return CustomFormField(
-      hint: "Password",
+      hint: "Password Confirmation",
       keyboardType: TextInputType.visiblePassword,
-      controller: context.read<LoginCubit>().passwordController,
+      controller: context.read<SignUpCubit>().passwordConfirmationController,
       validator: (value) {
-        if (!widget.isPasswordValidNotifier.value) {
-          return 'Please enter a valid password';
+        if (value == null || value.isEmpty || value != context.read<SignUpCubit>().passwordController.text) {
+          return 'Please enter a valid password Confirmation';
         }
         return null;
       },

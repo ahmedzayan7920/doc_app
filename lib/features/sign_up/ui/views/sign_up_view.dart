@@ -2,14 +2,14 @@ import 'package:doc_app/core/helpers/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../widgets/do_not_have_account.dart';
-import '../widgets/login_bloc_listener.dart';
-import '../widgets/login_form.dart';
-import '../widgets/login_header.dart';
-import '../widgets/login_terms_and_conditions.dart';
+import '../widgets/already_have_account.dart';
+import '../widgets/sign_up_bloc_listener.dart';
+import '../widgets/sign_up_form.dart';
+import '../widgets/sign_up_header.dart';
+import '../widgets/sign_up_terms_and_conditions.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class SignUpView extends StatelessWidget {
+  const SignUpView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +20,14 @@ class LoginView extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             child: const Column(
               children: [
-                LoginHeader(),
+                SignUpHeader(),
                 VerticalSpace(36),
-                LoginForm(),
+                SignUpForm(),
                 VerticalSpace(16),
-                LoginTermsAndConditions(),
+                SignUpTermsAndConditions(),
                 VerticalSpace(40),
-                DoNotHaveAccount(),
-                LoginBlocListener(),
+                AlreadyHaveAccount(),
+                SignUpBlocListener(),
               ],
             ),
           ),

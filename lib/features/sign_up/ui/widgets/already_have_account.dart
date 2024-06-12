@@ -1,10 +1,12 @@
 
+import 'package:doc_app/core/helpers/extensions.dart';
+import 'package:doc_app/core/routing/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/app_text_styles.dart';
 
-class LoginAlreadyHaveAccount extends StatelessWidget {
-  const LoginAlreadyHaveAccount({
+class AlreadyHaveAccount extends StatelessWidget {
+  const AlreadyHaveAccount({
     super.key,
   });
 
@@ -19,8 +21,10 @@ class LoginAlreadyHaveAccount extends StatelessWidget {
           style: AppTextStyles.regularGrey14,
         ),
         TextButton(
-          onPressed: () {},
-          child: const Text("Sign Up"),
+          onPressed: () {
+            context.pushReplacementNamed(AppRoutes.login);
+          },
+          child: const Text("Login"),
         ),
       ],
     );

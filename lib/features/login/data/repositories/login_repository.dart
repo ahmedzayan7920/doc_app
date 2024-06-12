@@ -1,7 +1,7 @@
 import '../../../../core/networking/api_error_handler.dart';
 import '../../../../core/networking/api_service.dart';
-import '../models/login_request_body.dart';
-import '../models/login_response.dart';
+import '../models/login_request_model.dart';
+import '../models/login_response_model.dart';
 
 import '../../../../core/networking/api_result.dart';
 
@@ -10,8 +10,8 @@ class LoginRepository {
 
   LoginRepository({required ApiService apiService}) : _apiService = apiService;
 
-  Future<ApiResult<LoginResponse>> login(
-      {required LoginRequestBody loginRequestBody}) async {
+  Future<ApiResult<LoginResponseModel>> login(
+      {required LoginRequestModel loginRequestBody}) async {
     try {
       final response = await _apiService.login(loginRequestBody);
       return ApiResult.success(response);

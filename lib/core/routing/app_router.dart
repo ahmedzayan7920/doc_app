@@ -1,3 +1,6 @@
+import 'package:doc_app/features/sign_up/logic/cubit/sign_up_cubit.dart';
+import 'package:doc_app/features/sign_up/ui/views/sign_up_view.dart';
+
 import '../../features/on_boarding/ui/views/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +22,13 @@ abstract class AppRouter {
           builder: (context) => BlocProvider(
             create: (context) => getIt<LoginCubit>(),
             child: const LoginView(),
+          ),
+        );
+      case AppRoutes.signUp:
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => getIt<SignUpCubit>(),
+            child: const SignUpView(),
           ),
         );
       default:

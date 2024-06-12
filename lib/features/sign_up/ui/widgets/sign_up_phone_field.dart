@@ -3,22 +3,22 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/widgets/custom_form_field.dart';
-import '../../logic/cubit/login_cubit.dart';
+import '../../logic/cubit/sign_up_cubit.dart';
 
-class LoginEmailField extends StatelessWidget {
-  const LoginEmailField({
+class SignUpPhoneField extends StatelessWidget {
+  const SignUpPhoneField({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return CustomFormField(
-      hint: "Email",
-      keyboardType: TextInputType.emailAddress,
-      controller: context.read<LoginCubit>().emailController,
+      hint: "Phone",
+      keyboardType: TextInputType.phone,
+      controller: context.read<SignUpCubit>().phoneController,
       validator: (value) {
-        if (value == null || value.isEmpty || !AppRegex.isEmailValid(value)) {
-          return 'Please enter a valid email';
+        if (value == null || value.isEmpty || !AppRegex.isPhoneValid(value)) {
+          return 'Please enter a valid Phone';
         }
         return null;
       },
