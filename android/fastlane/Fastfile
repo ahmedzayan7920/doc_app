@@ -1,0 +1,19 @@
+default_platform(:android)
+
+platform :android do
+  desc "Lane to upload app to firebase app distribution"
+  lane :upload do
+    
+    sh "flutter clean"
+    sh "flutter build apk --release --flavor Production --target lib/main.dart --no-tree-shake-icons"
+    firebase_app_distribution(
+    app: "1:946273473076:android:8275121a07a6c8ace4f061",
+    firebase_cli_token: "1//03I8umc2sgTErCgYIARAAGAMSNwF-L9Irksk7kyUhb94gYKLVG-02rSsT-xe8YSIgOEG7PPviOVrmCjs1hK4qQWRmPGIUB54q12E",
+    android_artifact_type: "APK",
+    android_artifact_path: "../build/app/outputs/flutter-apk/app-production-release.apk",
+    testers: "ahmedabdallazayan@gmail.com",
+    release_notes: "This is a test release with fastlane"
+  )
+  end
+
+end
