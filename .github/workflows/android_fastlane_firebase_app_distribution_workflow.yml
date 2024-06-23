@@ -23,41 +23,12 @@ jobs:
       with:
         channel: stable
 
-    - name: Check environment before Ruby setup
-      run: |
-        echo "PATH=$PATH"
-        which ruby
-        which bundle
-        ruby -v || echo "Ruby not installed"
-        bundle -v || echo "Bundler not installed"
-
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "3.2.3"
+        ruby-version: "3.3.3"
         bundler-cache: true
         working-directory: android
-
-    - name: Check environment after Ruby setup
-      run: |
-        echo "PATH=$PATH"
-        which ruby
-        which bundle
-        ruby -v
-        bundle -v
-
-    - name: Install dependencies
-      run: |
-        bundle install --verbose
-      working-directory: android
-
-    - name: Print Bundler and Ruby environment
-      run: |
-        ruby -v
-        bundle -v
-        gem env
-        bundle config
-      working-directory: android
 
     - name: Build and Distribute App
       env:
