@@ -1,3 +1,4 @@
+import 'package:doc_app/features/home/ui/views/home_view.dart';
 import 'package:doc_app/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:doc_app/features/sign_up/ui/views/sign_up_view.dart';
 
@@ -30,6 +31,10 @@ abstract class AppRouter {
             create: (context) => getIt<SignUpCubit>(),
             child: const SignUpView(),
           ),
+        );
+      case AppRoutes.home:
+        return MaterialPageRoute(
+          builder: (context) => const HomeView(),
         );
       default:
         return MaterialPageRoute(

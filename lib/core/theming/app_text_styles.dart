@@ -40,6 +40,11 @@ abstract class AppTextStyles {
     fontWeight: AppFontWeight.medium,
     color: AppColors.darkBlue,
   );
+  static TextStyle boldDarkBlue18 = TextStyle(
+    fontSize: 18.sp,
+    fontWeight: AppFontWeight.bold,
+    color: AppColors.darkBlue,
+  );
   static TextStyle semiBoldWhite16 = TextStyle(
     fontSize: 16.sp,
     fontWeight: AppFontWeight.semiBold,
