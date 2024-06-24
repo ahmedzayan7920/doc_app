@@ -5,6 +5,14 @@ class Assets {
   /// assets/images/android12_splash_logo.png
   static const String imagesAndroid12SplashLogo = "assets/images/android12_splash_logo.png";
 
+  /// Assets for imagesHomeBluePattern
+  /// assets/images/home_blue_pattern.png
+  static const String imagesHomeBluePattern = "assets/images/home_blue_pattern.png";
+
+  /// Assets for imagesHomeGirlDoctor
+  /// assets/images/home_girl_doctor.png
+  static const String imagesHomeGirlDoctor = "assets/images/home_girl_doctor.png";
+
   /// Assets for imagesLogo
   /// assets/images/logo.png
   static const String imagesLogo = "assets/images/logo.png";
@@ -16,6 +24,10 @@ class Assets {
   /// Assets for imagesSplash
   /// assets/images/splash.png
   static const String imagesSplash = "assets/images/splash.png";
+
+  /// Assets for svgsGeneralSpecialty
+  /// assets/svgs/general_specialty.svg
+  static const String svgsGeneralSpecialty = "assets/svgs/general_specialty.svg";
 
   /// Assets for svgsLogo
   /// assets/svgs/logo.svg
