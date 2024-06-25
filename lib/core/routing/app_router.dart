@@ -1,3 +1,4 @@
+import 'package:doc_app/features/home/logic/cubit/home_cubit.dart';
 import 'package:doc_app/features/home/ui/views/home_view.dart';
 import 'package:doc_app/features/sign_up/logic/cubit/sign_up_cubit.dart';
 import 'package:doc_app/features/sign_up/ui/views/sign_up_view.dart';
@@ -21,20 +22,23 @@ abstract class AppRouter {
       case AppRoutes.login:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => getIt<LoginCubit>(),
+            create: (context) => LoginCubit(loginRepository: getIt()),
             child: const LoginView(),
           ),
         );
       case AppRoutes.signUp:
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
-            create: (context) => getIt<SignUpCubit>(),
+            create: (context) => SignUpCubit(signUpRepository: getIt()),
             child: const SignUpView(),
           ),
         );
       case AppRoutes.home:
         return MaterialPageRoute(
-          builder: (context) => const HomeView(),
+          builder: (context) => BlocProvider(
+            create: (context) => HomeCubit(homeRepository: getIt())..getAllSpecialty(),
+            child: const HomeView(),
+          ),
         );
       default:
         return MaterialPageRoute(
