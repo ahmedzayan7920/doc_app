@@ -49,7 +49,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
   
   saveUserToken({required String token}) async{
-    await AppSharedPref.setData(AppSharedPrefKeys.userToken, token);
+    await AppSharedPref.setSecuredString(AppSharedPrefKeys.userToken, token);
     DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }
