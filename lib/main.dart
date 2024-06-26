@@ -8,6 +8,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // to fix text is hidden in release mode
   await ScreenUtil.ensureScreenSize();
-  initGetIt();
+  await initGetIt();
   runApp(const DocApp());
 }

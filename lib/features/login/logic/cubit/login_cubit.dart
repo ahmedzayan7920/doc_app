@@ -1,3 +1,7 @@
+import 'package:doc_app/core/helpers/app_shared_pref.dart';
+import 'package:doc_app/core/helpers/app_shared_pref_keys.dart';
+import 'package:doc_app/core/networking/dio_factory.dart';
+
 import '../../data/models/login_request_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,8 +30,10 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     response.when(
-      success: (loginResponse) {
+      success: (loginResponse) async{
+        await saveUserToken(token: loginResponse.data.token??"");
         emit(LoginState.success(loginResponse));
+
       },
       failure: (error) {
         emit(LoginState.error(message: error.apiErrorModel.message ?? ""));
@@ -40,5 +46,10 @@ class LoginCubit extends Cubit<LoginState> {
     emailController.dispose();
     passwordController.dispose();
     return super.close();
+  }
+  
+  saveUserToken({required String token}) async{
+    await AppSharedPref.setData(AppSharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }

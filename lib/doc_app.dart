@@ -1,4 +1,6 @@
 
+import 'core/helpers/app_shared_pref.dart';
+import 'core/helpers/app_shared_pref_keys.dart';
 import 'core/routing/app_router.dart';
 import 'core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -6,9 +8,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/routing/app_routes.dart';
 
-class DocApp extends StatelessWidget {
+class DocApp extends StatefulWidget {
   const DocApp({super.key});
 
+  @override
+  State<DocApp> createState() => _DocAppState();
+}
+
+class _DocAppState extends State<DocApp> {
+  bool isLoggedIn = false;
+
+  @override
+  void initState() {
+     checkLoggedState();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -32,7 +46,7 @@ class DocApp extends StatelessWidget {
               ),
             ),
           ),
-          initialRoute: AppRoutes.home,
+          initialRoute: isLoggedIn ? AppRoutes.home : AppRoutes.login,
           onGenerateRoute: AppRouter.onGenerateRoute,
         ),
       );
@@ -66,5 +80,14 @@ class DocApp extends StatelessWidget {
       //   );
       // }
     });
+  }
+  
+  checkLoggedState() async{
+    String? result = await AppSharedPref.getString(AppSharedPrefKeys.userToken);
+    if (result != null && result.isNotEmpty) {
+        isLoggedIn = true;
+    }else{
+      isLoggedIn = false;
+    }
   }
 }
