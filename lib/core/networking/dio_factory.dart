@@ -20,7 +20,7 @@ abstract class DioFactory {
   }
 
   static Future<void> _addDioHeaders() async {
-    final token = await AppSharedPref.getString(AppSharedPrefKeys.userToken);
+    final token = await AppSharedPref.getSecuredString(AppSharedPrefKeys.userToken);
     dio?.options.headers = {
       "Accept": "application/json",
       "Authorization": "Bearer $token",

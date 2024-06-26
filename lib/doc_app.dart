@@ -83,7 +83,7 @@ class _DocAppState extends State<DocApp> {
   }
   
   checkLoggedState() async{
-    String? result = await AppSharedPref.getString(AppSharedPrefKeys.userToken);
+    String? result = await AppSharedPref.getSecuredString(AppSharedPrefKeys.userToken);
     if (result != null && result.isNotEmpty) {
         isLoggedIn = true;
     }else{
