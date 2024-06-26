@@ -10,16 +10,17 @@ import 'package:get_it/get_it.dart';
 final getIt = GetIt.instance;
 
 initGetIt() async {
-  _initNetworking();
+  await _initNetworking();
   _initLogin();
   _initSignUp();
   _initHome();
 }
 
-_initNetworking() {
+_initNetworking() async {
   /// Dio
+  final dio = await DioFactory.getDio();
   getIt.registerLazySingleton<Dio>(
-    () => DioFactory.getDio(),
+    () => dio,
   );
 
   /// Api Service
