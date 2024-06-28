@@ -12,6 +12,10 @@ class HomeState with _$HomeState {
 
   // SPECIALTY
   const factory HomeState.specialtyLoading() = SpecialtyLoading;
-  const factory HomeState.specialtySuccess({required SpecialtyResponseModel specialtyResponseModel}) = SpecialtySuccess;
+  const factory HomeState.specialtySuccess({required List<SpecialtyDataModel> specialtyData}) = SpecialtySuccess;
   const factory HomeState.specialtyError({required ErrorHandler errorHandler}) = SpecialtyError;
+
+  // RECOMMENDATION DOCTORS
+  const factory HomeState.recommendationDoctorsSuccess({required List<DoctorModel> doctors}) = RecommendationDoctorsSuccess;
+  const factory HomeState.recommendationDoctorsError({required ErrorHandler errorHandler}) = RecommendationDoctorsError;
 }

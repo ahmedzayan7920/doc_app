@@ -70,6 +70,11 @@ abstract class AppTextStyles {
     fontWeight: AppFontWeight.regular,
     color: AppColors.darkBlue,
   );
+  static TextStyle boldPrimary12 = TextStyle(
+    fontSize: 12.sp,
+    fontWeight: AppFontWeight.bold,
+    color: AppColors.primary,
+  );
   static TextStyle mediumGrey12 = TextStyle(
     fontSize: 12.sp,
     fontWeight: AppFontWeight.medium,

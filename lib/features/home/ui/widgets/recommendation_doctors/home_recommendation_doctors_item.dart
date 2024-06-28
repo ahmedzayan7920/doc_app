@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/helpers/spaces.dart';
-import '../../../../core/theming/app_text_styles.dart';
-import '../../data/models/specialty_response_model.dart';
+import '../../../../../core/helpers/spaces.dart';
+import '../../../../../core/theming/app_text_styles.dart';
+import '../../../data/models/specialty_response_model.dart';
 
-class HomeRecommendationDoctorItem extends StatelessWidget {
-  const HomeRecommendationDoctorItem({
+class HomeRecommendationDoctorsItem extends StatelessWidget {
+  const HomeRecommendationDoctorsItem({
     super.key, required this.doctor,
   });
 
@@ -20,6 +20,17 @@ class HomeRecommendationDoctorItem extends StatelessWidget {
         CachedNetworkImage(
           imageUrl:
               doctor.photo,
+              progressIndicatorBuilder: (context, url, downloadProgress) {
+              return Container(
+                  width: 110.w,
+                  height: 110.h,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: Colors.white,
+                  ),
+                );
+            },
           imageBuilder: (context, imageProvider) => Container(
             width: 110.w,
             height: 110.h,
@@ -32,6 +43,20 @@ class HomeRecommendationDoctorItem extends StatelessWidget {
               ),
             ),
           ),
+          errorWidget: (context, url, error) {
+            return Container(
+                  width: 110.w,
+                  height: 110.h,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(12.0),
+                    color: Colors.white,
+                  ),
+                  child: Center(
+                    child: FittedBox(child: Text(error.toString(), maxLines: 10,)),
+                  ),
+                );
+          },
         ),
       const HorizontalSpace(16),
       Expanded(

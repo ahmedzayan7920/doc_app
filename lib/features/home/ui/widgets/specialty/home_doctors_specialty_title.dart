@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/app_text_styles.dart';
+import '../../../../../core/theming/app_text_styles.dart';
 
-class HomeDoctorSpecialtyTitle extends StatelessWidget {
-  const HomeDoctorSpecialtyTitle({
+class HomeDoctorsSpecialtyTitle extends StatelessWidget {
+  const HomeDoctorsSpecialtyTitle({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class HomeDoctorSpecialtyTitle extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("Doctor Specialty", style: AppTextStyles.semiBoldDarkBlue18),
+        Text("Doctors Specialty", style: AppTextStyles.semiBoldDarkBlue18),
         Text(
           "See All",
           style: AppTextStyles.regularPrimary12,

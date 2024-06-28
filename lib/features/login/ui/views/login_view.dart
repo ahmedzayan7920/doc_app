@@ -20,6 +20,7 @@ class LoginView extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
             child: const Column(
               children: [
+                LoginBlocListener(),
                 LoginHeader(),
                 VerticalSpace(36),
                 LoginForm(),
@@ -27,7 +28,6 @@ class LoginView extends StatelessWidget {
                 LoginTermsAndConditions(),
                 VerticalSpace(40),
                 DoNotHaveAccount(),
-                LoginBlocListener(),
               ],
             ),
           ),

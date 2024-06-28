@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:doc_app/features/home/data/api/home_api_service.dart';
 import 'package:doc_app/features/home/data/repositories/home_repository.dart';
+import '../../features/login/logic/cubit/login_cubit.dart';
 import '../../features/sign_up/data/repositories/sign_up_repository.dart';
 import '../networking/api_service.dart';
 import '../networking/dio_factory.dart';
@@ -9,16 +10,16 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
-initGetIt() async {
-  await _initNetworking();
+initGetIt() {
+  _initNetworking();
   _initLogin();
   _initSignUp();
   _initHome();
 }
 
-_initNetworking() async {
+_initNetworking() {
   /// Dio
-  final dio = await DioFactory.getDio();
+  final dio = DioFactory.getDio();
   getIt.registerLazySingleton<Dio>(
     () => dio,
   );

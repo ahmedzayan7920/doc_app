@@ -1,9 +1,11 @@
 import 'package:doc_app/core/helpers/spaces.dart';
-import 'package:doc_app/features/home/ui/widgets/home_specialty_and_recommended_doctors_bloc_builder.dart';
+import 'package:doc_app/features/home/ui/widgets/recommendation_doctors/home_recommendation_doctors_title.dart';
+import 'package:doc_app/features/home/ui/widgets/specialty/home_specialty_bloc_builder.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/home_doctor_specialty_title.dart';
+import '../widgets/specialty/home_doctors_specialty_title.dart';
 import '../widgets/home_find_nearby_doctors.dart';
+import '../widgets/recommendation_doctors/home_recommendation_doctors_bloc_builder.dart';
 import '../widgets/home_top_bar.dart';
 
 class HomeView extends StatelessWidget {
@@ -20,9 +22,13 @@ class HomeView extends StatelessWidget {
               HomeTopBar(),
               HomeFindNearbyDoctors(),
               VerticalSpace(24),
-              HomeDoctorSpecialtyTitle(),
+              HomeDoctorsSpecialtyTitle(),
               VerticalSpace(16),
-              HomeSpecialtyAndRecommendedDoctorsBlocBuilder(),
+              HomeSpecialtyBlocBuilder(),
+              VerticalSpace(24),
+              HomeRecommendationDoctorsTitle(),
+              VerticalSpace(16),
+              HomeRecommendationDoctorsBlocBuilder(),
             ],
           ),
         ),
